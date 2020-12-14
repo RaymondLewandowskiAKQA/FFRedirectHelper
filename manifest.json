@@ -9,6 +9,7 @@
       "32":"icons/themes/light/tools-32.png",
       "64":"icons/themes/light/tools-64.png"
   },
+  "homepage_url":"https://github.com/RaymondLewandowskiAKQA/FFRedirectHelper/tree/prod",
 
   "permissions": [
     "<all_urls>",
