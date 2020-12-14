@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AEM Developer Popup</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles/globals.css">
+  <link rel="stylesheet" type="text/css" href="styles/popup.css">
+  <script src="scripts/globals.js"></script>
+  <style type="text/css">
+    body {
+      width: 20%;
+      /*margin: 50px;*/
+      /*background: #aaa;*/
+      /*box-shadow: 3px 3px 8px -3px black;*/
+    }
+    .card-container {
+      padding: 6px 6px 0px 5px;
+    }
+  </style>
+</head>
+<body style="min-width: 360px;">
+  <div class="body">
+    <div class="card-container" id="container">
+      <div class="card" id="template">
+      <!-- <div class="card"> -->
+        <div class="header" style="--color:darkred;">
+          <span class="name"></span>
+          <!-- <span class="name">Lorem ipsum</span> -->
+          <div class="inline-group actions">
+            <span>
+              <button type="button" class="button" name="open" value="author" title="Open author environment">
+                <img src="icons/svg/pencil.svg" alt="pencil icon" aria-hidden="true">
+              </button>
+              <button type="button" class="button" name="options" value="author" title="More options">
+                <!-- <img src="icons/svg/down.svg" alt="down arrow" aria-hidden="true"> -->
+              </button>
+            </span>
+            <span>
+              <button type="button" class="button" name="open" value="preview" title="Open preview environment">
+                <img src="icons/svg/magnifier.svg" alt="magnifier icon" aria-hidden="true">
+              </button>
+              <button type="button" class="button" name="options" value="preview" title="More options">
+                <!-- <img src="icons/svg/down.svg" alt="down arrow" aria-hidden="true"> -->
+              </button>
+            </span>
+            <span>
+              <button type="button" class="button" name="open" value="published" title="Open published environment">
+                <img src="icons/svg/globe.svg" alt="globe icon" aria-hidden="true">
+              </button>
+              <button type="button" class="button" name="options" value="published" title="More options">
+                <!-- <img src="icons/svg/down.svg" alt="down arrow" aria-hidden="true"> -->
+              </button>
+            </span>
+        </div>
+      </div>
+      
+<!--       <div class="expando">
+        <div class="inline-group actions">
+          <span>
+            <button type="button" class="button" name="open" value="author" title="Open author environment">
+              <img src="icons/svg/pencil.svg" alt="pencil icon" aria-hidden="true">
+            </button>
+          </span>
+          <span>
+            <button type="button" class="button" name="open" value="author" title="Open author environment">
+              <img src="icons/svg/pencil.svg" alt="pencil icon" aria-hidden="true">
+            </button>
+          </span>
+        </div>
+      </div> -->
+      
+    </div>
+  </div>
+  <div class="quick-actions">
+    <button type="button" id="show-bar" class="pull-left" title="Show environment labels">
+      <img src="icons/svg/window-bar.svg" class="icon">
+    </button>
+    <button type="button" id="disable-cache" title="Disable cache and reload">
+      <img src="icons/svg/cache-refresh.svg" class="icon">
+    </button>
+    <button type="button" id="outline" title="Outline AEM components">
+      <img src="icons/svg/outline.svg" class="icon">
+    </button>
+    <button type="button" id="settings" class="pull-right" title="Open extension settings">
+      <img src="icons/svg/gear.svg" class="icon">
+    </button>
+  </div>
+  <script src="scripts/popup.js"></script>
+</body>
+</html>

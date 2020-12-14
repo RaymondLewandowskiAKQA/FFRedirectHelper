@@ -1,0 +1,282 @@
+/* 
+
+    Primary Color: #008080;
+    Secondary Color: #ffba00;
+*/
+* {
+    box-sizing: border-box;
+    font-family: "Century Gothic",sans-serif;
+}
+
+body {
+    width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h1+p,h2+p,h3+p,h4+p,h5+p,h6+p,p+p {
+    margin-top: 5px;
+}
+
+p:last-of-type {
+    margin-bottom: 15px;
+}
+
+.notification {
+    position: relative;
+    display: flex;
+    width: 90%;
+    height: 100px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 2px solid #600;
+    border-radius: 5px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.notification span {
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.notification.error {
+    background: #faa;
+    color: #600;
+}
+
+.notification.error button {
+    color: #600;
+}
+
+#template {
+    display: none;
+}
+
+fieldset {
+    border: none;
+}
+
+input {
+    background: none;
+}
+
+input[type="checkbox"] {
+    transform: scale(2);
+    margin: 0 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+    form {
+        width: 83%;
+    }
+}
+
+#fieldset-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    box-shadow: 1px 1px 4px -1px black;
+    border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    margin: 10px 0;
+    width: 100%;
+    font-size: 1.4em
+}
+
+@media screen and (min-width: 1024px) {
+    .card {
+        width: 48%;
+        margin: 10px 1%;
+    }
+}
+
+.top,.body {
+    display: flex;
+    width: 100%;
+    top: 0;
+    padding: 10px;
+}
+
+.top {
+    position: relative;
+    flex-wrap: nowrap;
+    background: darkred;
+    background: #008080;
+}
+
+.body {
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 0 15px;
+}
+
+.row > h3 {
+    flex-basis:100%;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: normal;
+    /*color: darkgrey;*/
+    /*color: lightgrey;*/
+}
+
+.card label {
+    /* its flex all the way down */
+    display: flex;
+    margin: 5px 0;
+    flex-shrink: 1;
+    flex-grow: 3;
+    flex-basis: 33%;
+}
+
+.card label:first-child {
+    flex-grow: 0;
+}
+
+.card label.text {
+    margin-bottom: 15px;
+}
+
+.name {
+    padding: 0 10px;
+    flex-basis: 50%;
+    flex-grow: 2;
+    text-align: right;
+    white-space: pre;
+}
+
+.top {
+    font-size: 1.4em;
+    box-shadow: 0px -4px 4px -4px black inset;
+}
+
+.top .name, .top input {
+    position: relative;
+    font-weight: bold;
+}
+
+::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+.top .name {
+    color: white;
+    opacity: 0.8;
+}
+
+.top .text:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.07;
+    background-color: white;
+}
+
+.top input {
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    color: white;
+}
+
+.body .name {
+    font-size: 1.05em;
+}
+
+.body .text input {
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+
+.body .text:hover .name {
+    color: #008080;
+}
+
+.body .text:hover input {
+    border-bottom: 1px solid #008080;
+}
+
+label > input {
+    border: none;
+}
+
+.bottom {
+    margin-top: 10px;
+}
+
+.close {
+    position: absolute;
+    right: 9px;
+    border: none;
+    background: none;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: white;
+    opacity: 0.8;
+}
+
+.close:hover {
+    color: #ffba00;
+    opacity: 1;
+}
+
+.bottom button {
+    min-width: 100px;
+    margin: 5px; 
+    padding: 15px;
+    /*border: 1px solid black;*/
+    border: none;
+    border-radius: 5px;
+    background: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.bottom button:first-of-type {
+    margin-left: 0;
+}
+
+.bottom button:hover, .bottom button:focus {
+    box-shadow: 1px 1px 4px -1px black;
+}
+
+.bottom button:active {
+    filter: brightness(85%);
+}
+
+button.primary {
+    box-shadow: 1px 1px 4px -1px black;
+    background: #008080;
+    color: white;
+}
+
+.bottom button.primary:hover, .bottom button:focus {
+    box-shadow: 1px 1px 3px 0px black;
+    opacity: 0.95;
+}

@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: "Century Gothic",sans-serif;
+
+}
+
+html,body{
+    margin: 0;
+    border: none;
+    padding: 0;
+}
+
+.hidden {
+    display: none;
+}

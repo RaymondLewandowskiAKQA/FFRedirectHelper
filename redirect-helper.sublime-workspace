@@ -1,0 +1,1012 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"req",
+				"requestListener"
+			],
+			[
+				"type",
+				"types"
+			],
+			[
+				"request",
+				"requestDetails"
+			],
+			[
+				"requ",
+				"requestDetails"
+			],
+			[
+				"rq",
+				"requestIds"
+			],
+			[
+				"redi",
+				"redirectUrl"
+			],
+			[
+				"tr",
+				"tr\tTag"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"pad",
+				"padding-half"
+			],
+			[
+				"bac",
+				"background-clip"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"bk",
+				"bkg-primary"
+			],
+			[
+				"fg",
+				"fgd-primary"
+			],
+			[
+				"secn",
+				"bkg-secondary"
+			],
+			[
+				"bol",
+				"bold"
+			],
+			[
+				"pri",
+				"--fgd-primary"
+			],
+			[
+				"col",
+				"column"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"padd-",
+				"padding-left"
+			],
+			[
+				"f",
+				"fgd-primary"
+			],
+			[
+				"paddi",
+				"padding-bottom"
+			],
+			[
+				"dar",
+				"dark-text-alt"
+			],
+			[
+				"light-te",
+				"light-text-alt"
+			],
+			[
+				"li",
+				"light-text"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"border-ri",
+				"border-bottom-right-radius"
+			],
+			[
+				"margin-",
+				"margin-top"
+			],
+			[
+				"brea",
+				"break-line"
+			],
+			[
+				"dark",
+				"dark-text-alt"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"tex",
+				"text-indent"
+			],
+			[
+				"lght",
+				"light-bkg-alt"
+			],
+			[
+				"light",
+				"light-border"
+			],
+			[
+				"p",
+				"punctuation"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"rev",
+				"review-summary"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"mari",
+				"margin-left"
+			],
+			[
+				"column",
+				"column-item"
+			],
+			[
+				"md-",
+				"md-offset-0"
+			],
+			[
+				"art",
+				"article-container"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"con",
+				"content-section"
+			],
+			[
+				"dis",
+				"disabled"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"border-top-",
+				"border-top-right-radius"
+			],
+			[
+				"border-top",
+				"border-top-left-radius"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"col-sm-o",
+				"col-sm-offset-0"
+			],
+			[
+				"sm-",
+				"col-sm-12"
+			],
+			[
+				"han",
+				"handleGestureStart"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"lo",
+				"louis-george-cafe"
+			],
+			[
+				"re",
+				"regencie"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"border-co",
+				"border-collapse"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"pre",
+				"pre-line"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"table",
+				"table-cell"
+			],
+			[
+				"img-",
+				"img-segment"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"scr",
+				"scrollY"
+			],
+			[
+				"del",
+				"deltaY"
+			],
+			[
+				"paa",
+				"parallaxScroll"
+			],
+			[
+				"scroll",
+				"scrollY"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"fa",
+				"fadeOutLightShadow"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"over",
+				"overlayFadeIn"
+			],
+			[
+				"tabl",
+				"table-cell"
+			],
+			[
+				"bo",
+				"bolder"
+			],
+			[
+				"I",
+				"Italic"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"backr",
+				"background"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"get",
+				"getElementsByClassName"
+			],
+			[
+				"sele",
+				"selectedClass"
+			],
+			[
+				"clas",
+				"classList"
+			],
+			[
+				"nav",
+				"navButtons"
+			],
+			[
+				"ge",
+				"generateButtonHandler"
+			],
+			[
+				"button",
+				"buttonList"
+			],
+			[
+				"add",
+				"addNavBarListeners"
+			],
+			[
+				"butt",
+				"buttonList"
+			],
+			[
+				"par",
+				"parse\tfunction"
+			],
+			[
+				"ab",
+				"ABCMeta\tclass"
+			],
+			[
+				"CSS",
+				"CSSGeneric"
+			],
+			[
+				"new",
+				"new_css\tmodule"
+			],
+			[
+				"redn",
+				"rendered_string"
+			],
+			[
+				"seg",
+				"segment\tstatement"
+			],
+			[
+				"ma",
+				"matching\tstatement"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"pr",
+				"property-group"
+			],
+			[
+				"o",
+				"other"
+			],
+			[
+				"var",
+				"variable"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"n",
+				"n_frags\tparam"
+			],
+			[
+				"L",
+				"LVL_2_PSEUDO_ELEMENTS\tstatement"
+			],
+			[
+				"colo",
+				"colon_count\tstatement"
+			],
+			[
+				"is",
+				"is_element\tstatement"
+			],
+			[
+				"ps",
+				"pseudo_name\tstatement"
+			],
+			[
+				"a-zA",
+				"_a-zA-Z0-9"
+			],
+			[
+				"first",
+				"first_char\tstatement"
+			],
+			[
+				"firs",
+				"first_char\tstatement"
+			],
+			[
+				"Tr",
+				"True\tinstance"
+			],
+			[
+				"id",
+				"IDENT_CHARS\tstatement"
+			],
+			[
+				"ele",
+				"element\tparam"
+			],
+			[
+				"paren",
+				"parent\tstatement"
+			],
+			[
+				"att",
+				"attributes"
+			],
+			[
+				"Styl",
+				"StyleSheet\tclass"
+			],
+			[
+				"_cs",
+				"_tag_css"
+			],
+			[
+				"insta",
+				"isinstance"
+			],
+			[
+				"clos",
+				"closing"
+			],
+			[
+				"end",
+				"end_index\tstatement"
+			],
+			[
+				"toke",
+				"token_generator\tstatement"
+			],
+			[
+				"tok",
+				"token_generator\tparam"
+			],
+			[
+				"self",
+				"self_closing"
+			],
+			[
+				"attr",
+				"attribute"
+			],
+			[
+				"Attr",
+				"AttributeError\tclass"
+			],
+			[
+				"apply",
+				"apply_css\tfunction"
+			],
+			[
+				"styl",
+				"stylesheets"
+			],
+			[
+				"Text",
+				"TextNode\tclass"
+			],
+			[
+				"has",
+				"has_node\tfunction"
+			],
+			[
+				"Tag",
+				"TagNode\tclass"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "background.js",
+			"settings":
+			{
+				"buffer_size": 864,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "manifest.json",
+			"settings":
+			{
+				"buffer_size": 595,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Python 3"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 469.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"set html",
+				"Set Syntax: HTML"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"out",
+				"Browse Mode: Outline (Right)"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Create Package File"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"ari",
+				"Arithmetic"
+			],
+			[
+				"outl",
+				"Browse Mode: Outline (Right)"
+			],
+			[
+				"outline",
+				"Browse Mode: Outline (Right)"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"repl pythn",
+				"SublimeREPL: Python"
+			],
+			[
+				"repl pyth",
+				"SublimeREPL: Python"
+			],
+			[
+				":0",
+				":0 - BOF"
+			],
+			[
+				":$",
+				":$ - EOF"
+			],
+			[
+				"packac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 735.0
+	},
+	"console":
+	{
+		"height": 517.0,
+		"history":
+		[
+			"import socket; socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((\"localhost\", 51568))"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/creed1701/Documents/_personal/programming/js/firefox_extensions/redirect_helper/icons"
+	],
+	"file_history":
+	[
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/creed1701/Documents/_personal/programming/js/firefox_extensions/redirect_helper/listener.js",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/launch-profile/media/icons/alert.svg",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/launch-profile/media/icons/critical.svg",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/launch-profile/styles/rows.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/launch-profile/scripts/main.js",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/launch-profile/fonts.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/launch-profile/styles/main.css",
+		"/C/Users/creed1701/Desktop/tmp.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/fill.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/article.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/quote.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/_palette.txt",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/roadmap.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/_list-fonts.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/parallax.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/all-styles.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/parallax.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/scripts/sandbox.js",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/cols.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/sandbox.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/main.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/test-square.html",
+		"/C/Users/creed1701/Pictures/Quick Shops/common_bitch_b99/plain.svg",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/cards.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/parallax.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/show-cols.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/tiles.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/bootstrap-grid.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/cards.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/tiles.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/css/bootstrap-reboot.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/css/bootstrap-grid.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/tiles_mk1.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/styles/tiles_mk1.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/_dev/old_files/tiles.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/_dev/old_files/tiles.css",
+		"/C/Users/creed1701/Documents/Unimelb/SEE/plans/mock-ups/mobile-menu.html",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/media/fonts/_raw/louis-george-cafe/webfontkit-20180831-135932/stylesheet.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/media/fonts/_raw/Regencie/webfontkit-20180831-133127/stylesheet.css",
+		"/C/Users/creed1701/Documents/_personal/programming/websites/moekakiryu.com/media/fonts/_raw/Regencie/webfontkit-20180831-133127/specimen_files/specimen_stylesheet.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/res/names/male/first.txt",
+		"/C/Users/creed1701/Documents/_personal/py_files/res/names/female/last.txt",
+		"/C/Users/creed1701/Documents/_personal/py_files/res/names/female/first.txt",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/static.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/css/block.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/css/blocks.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/_abstract.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/containers.py",
+		"/C/Users/creed1701/Desktop/asda.html",
+		"/C/Users/creed1701/Desktop/banned_souls.txt",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/new_css.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/main_rules.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/__init__.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/dynamic.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/example1.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/html/base.py",
+		"/C/Python34/Lib/site-packages/pip/_internal/commands/uninstall.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/interface.py",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Python/Python.tmLanguage",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Color Scheme - Default/Clown (Dark Python).sublime-color-scheme",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Color Scheme - Default/Clown (Dark).sublime-color-scheme",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Color Scheme - Default/Clown (Dark).tmTheme",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Python/Python Copy.tmLanguage",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Python/Python.sublime-build",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Python/Miscellaneous.tmPreferences",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Python/Regular Expressions (Python).tmLanguage.cache",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Python/Python - Copy.tmLanguage",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/bad_data_001.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/main2.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/main.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/tests/_html_tests.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/tests/_css_tests.py",
+		"/C/Program Files (x86)/windows nt/tabletextservice/en-US/TableTextService.dll.mui",
+		"/C/Users/creed1701/Documents/_personal/dnd/Starters/roll_stats.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/page.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/parser.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/html/__init__.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/html/_locals.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/html/subtypes.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/tests/_main_tests.py",
+		"/C/Users/creed1701/Downloads/MjMAABBoAwA=/MjMAABBoAwA=/world_behavior_packs.json",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/html.py",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/tests/_shared.py",
+		"/C/Users/creed1701/Desktop/Hello_world.ps1",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/bad_data_001.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/old_new_abstract.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/tests/__init__.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/tests/_main.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/old_parse.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/environment.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/tests/_html.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/configs.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/ign_todo.txt",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/main2.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/css/bootstrap.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/prod_code.html",
+		"/C/Users/creed1701/Documents/_personal/MLee/custom.css",
+		"/C/Users/creed1701/Documents/_personal/MLee/emoji.css",
+		"/C/Users/creed1701/Documents/_personal/MLee/Michelle Lee.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Trie.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/fromroot.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/css/main.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/parser2.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/external_stylesheet_test/fromroot.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/_parser.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/_configs.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/__init__.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/html/_html.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/_static.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/_dynamic.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/_containers.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/_dynamic2.py",
+		"/C/Users/creed1701/AppData/Roaming/Magnolia/styles/remote.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/external_stylesheet_test/main.html",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/dev/queries.css",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css/css.py",
+		"/C/Users/creed1701/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/Users/creed1701/Documents/unimelb/2017/SWEN20003/Projects/SOURCE/rlewandowski/user/custom/this is fun.lvl",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css_abstract.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/css.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/at_rules.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/io.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/Structure/html.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/magnolia/Structure/page.py",
+		"/C/Users/creed1701/Documents/_personal/py_files/Projects/CSSParser/ilex/Structure/html.py"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 123.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"rerequestFilterq",
+			"redirectAsync",
+			"redirectUrl",
+			"requestDetails"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "background.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 864,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								397,
+								397
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								369,
+								369
+							]
+						],
+						"settings":
+						{
+							"origPos":
+							[
+								0.0,
+								0.0
+							],
+							"syncScroll": false,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"file": "icons/border-48.png",
+					"semi_transient": true,
+					"stack_index": 2,
+					"type": "image"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 261.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 27.2
+	},
+	"output.find_results":
+	{
+		"height": 142.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "redirect-helper.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"CSSParser\\magnolia\\css.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 263.2,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 559.6
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 188.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

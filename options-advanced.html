@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Settings | AEM Developer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles/globals.css">
+    <link rel="stylesheet" type="text/css" href="styles/options.css">
+    <link rel="stylesheet" type="text/css" href="color-picker/color-picker.css">
+    <script type="module" src="scripts/options-advanced.js"></script>
+  </head>
+<body>
+  <div class="header">
+    <div class="container clear-fix">
+      <h1>AEM Developer</h1>
+      <p>Advanced Settings</p>
+      <div class="error notification hidden" id="error">
+        <span>An unexpected error has occurred.</span>
+        <button name="close" class="close" type="button">X</button>
+      </div>
+      <div class="floating-links pull-right">
+        <a href="/options.html">Standard Settings</a>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="container">
+      <form id="advanced-options" autocomplete="">
+        <div id="fieldset-container">
+          <label for="env-label-css"><h3>Environment Label CSS:</h3>
+          <p>This css is applied to a page when environment labels are shown.</p>
+          </label>
+          <textarea id="env-label-css" class="code" rows="7" cols="160" spellcheck="false"></textarea>
+        </div>
+        <div class="quick-actions">
+          <button type="submit" class="primary">Save
+            <img src="icons/svg/check-mark.svg" id="success" class="hidden">
+          </button>
+        </div>
+        <span id="feedback"></span>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

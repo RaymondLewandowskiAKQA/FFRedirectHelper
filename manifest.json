@@ -1,0 +1,53 @@
+{
+
+  "description": "Change AEM environments and set up to auto-redirect",
+  "manifest_version": 2,
+  "name": "AEM Developer", // TODO: rename to PACE Yourself or something else suitably cheesy and Nissan related
+  "version": "1.5.1.1",
+  "icons": {
+      "16":"icons/themes/light/tools-16.png",
+      "32":"icons/themes/light/tools-32.png",
+      "64":"icons/themes/light/tools-64.png"
+  },
+
+  "permissions": [
+    "<all_urls>",
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "tabs",
+    "theme",
+    "webRequest", 
+    "webRequestBlocking"
+  ],
+
+  "options_ui":{
+    "page":"options.html",
+    "open_in_tab":true
+  },
+
+  "background": {
+    "persistent":true,
+    "scripts": [
+      // this isn't great, but background.js needs resources defined in globals.js
+      // "scripts/globals.js",  
+      "scripts/background.mjs"
+    ]
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "moekakiryutaku@gmail.com"
+    }
+  },
+
+  "page_action": {
+    "default_icon": {
+      "16":"icons/themes/light/tools-16.png",
+      "32":"icons/themes/light/tools-32.png",
+      "64":"icons/themes/light/tools-64.png"
+    },
+    "default_title":"Change AEM Environment",
+    "default_popup":"popup.html"
+  }
+}

@@ -1,0 +1,493 @@
+/* 
+
+    Primary Color: #008080;
+    Secondary Color: #ffba00;
+
+    Light Grey: #ececec;
+*/
+html {
+    height: 100%;
+}
+
+body {
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5em;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    text-align: center;
+    margin: 5px 0;
+}
+
+#template {
+    display: none;
+}
+
+.header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: 100px;
+    overflow: hidden;
+    background: white;
+    font-size: 0.6em;
+}
+
+.content {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    padding-top: 2px;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    height: 10px;
+    width: 100%;
+    border-radius: 50%;
+    /*background:red;*/
+    box-shadow: 0px 0px 10px 3px black; 
+}
+
+.container {
+    width: 90%;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+
+.floating-links {
+    float: left;
+    margin-bottom: 25px;
+}
+
+.floating-links a + a::before {
+    content: "| ";
+    display: inline-block;
+    white-space: pre;
+}
+
+.floating-links a, 
+.floating-links a:visited {
+/* this class is intended for menu elements, as such visited is not applicable */
+    color: grey;
+}
+
+.content .container {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+label {
+    display: block;
+    margin: 15px 0;
+}
+
+input[type="text"] {
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+    text-overflow: ellipsis;
+}
+
+input[type="text"].valid {
+    color: green;
+    border-bottom-color:green;
+}
+
+input[type="text"].invalid {
+    color: red;
+    border-bottom-color:red;
+}
+
+input[type="text"]::placeholder {
+    color: #444;
+}
+
+textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+code,.code {
+    font-family: monospace;
+    font-size: 0.75em;
+}
+
+fieldset.card {
+    /*width: 45%;*/
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 350px;
+    margin: 15px 0;
+    padding: 0;
+    border: 1px solid black;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 1px 1px 4px -1px black;
+    text-align: left;
+    transition: top 5s;
+}
+
+.card .title,.card .settings {
+    position: relative;
+    height: 100%;
+    flex-basis: 50%;
+    padding: 15px;
+}
+
+.card .title {
+    background: #ececec;
+    /*border-right: 1px solid black;*/
+}
+
+.card .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--color);
+}
+
+@media screen and (min-width: 1480px) {
+    .container {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    fieldset.card {
+        flex-flow: column;
+        height: auto;
+    }
+    .card .title {
+        /*border-right: none;*/
+        /*border-bottom: 1px solid black;*/
+        box-shadow: 0px -5px 7px -7px inset black;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        width: 98%;
+    }
+}
+
+.title .name,.title .urls {
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.text span {
+    font-weight: bold;
+    font-size: 0.5em;
+}
+
+.title input {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.title .urls {
+    padding-top: 30px;
+    font-size: 0.5em;
+}
+
+.urls span {
+    font-size: 1em;
+}
+
+.urls input {
+    font-size: 1.1em;
+} 
+
+.card .settings {
+    box-shadow: -4px 0px 7px -7px black;
+    flex-basis: 50%;
+    flex-grow: 1;
+    /*cursor: grab;*/
+    z-index: 2;
+}
+/*
+.card.drag .settings {
+    cursor: grabbing;
+}*/
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    background: none;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: darkgrey;
+    opacity: 0.8;
+    z-index: 9999999;
+}
+
+.close:hover {
+    color: grey;
+    opacity: 1;
+}
+
+/* checkbox fun */
+.settings fieldset {
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+.settings h3 {
+    color: black;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.settings .checkbox-group {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+.settings fieldset h3 ~ .checkbox-group {
+    height: 75px;
+}
+
+.settings fieldset .checkbox-group {
+    height: 95px;
+}
+
+.checkbox-group .checkbox {
+    flex: 1 1 0;
+    display: inline-block;
+    max-width: 250px;
+}
+
+.checkbox-group label {
+    position: relative;
+    height: 100%;
+    margin: 0 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+}
+
+.checkbox-group label input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkbox-group label .name {
+    flex: 1 1 0px;
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+fieldset h3  ~ .checkbox-group label .name {
+    font-size: 0.7em;
+}
+
+.checkbox-group label .status {
+    flex: 2 1;
+    position: relative;
+    background: lightgrey;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px -1px black inset;
+    transition: background-color 0.5s;
+}
+
+.checkbox-group label .status::after {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 70%;
+    left: 0%;
+    border: 1px solid black;
+    border-radius: 4px;
+    background: white;
+    transition: left 0.5s;
+}
+
+.checkbox-group label input[disabled] ~ .status { 
+    background: lightgrey !important;
+}
+
+.checkbox-group label input[disabled] ~ .status::after { 
+    background: lightgrey !important;
+}
+
+
+.checkbox-group label input:checked ~ .status {
+    background: darkgrey;
+}
+
+.checkbox-group label input:checked ~ .status::after {
+    left: 30%;
+}
+
+.checkbox-group label input:focus ~ .status {
+    outline: 1px dotted black;
+}
+
+/* quick actions*/
+.quick-actions {
+    display: flex;
+    justify-content: right;
+    height: 60px;
+}
+
+.quick-actions button {
+    position: relative;
+    flex-basis: 50%;
+    margin: 5px;
+    border: 1px solid black;
+    background: none;
+    border-radius: 3px;
+}
+
+.quick-actions button:focus,.quick-actions button:hover {
+    background: lightgrey;
+}
+
+.quick-actions button:active{
+    background: grey;
+}
+
+.quick-actions button:first-child {
+    margin-left: 0px;
+}
+
+.quick-actions  button:last-child {
+    margin-right: 0px;
+}
+
+@keyframes saveAnimation {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.floating-button-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 12px;
+}
+
+.floating-button-container button {
+    position: relative;
+    margin: 0 4px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 2px 2px 7px -4px black;
+    font-size: 0.65em;
+    color: black;
+    z-index: 5;
+}
+
+.floating-button-container button:hover,
+.floating-button-container button:focus {
+    background: rgba(100, 100, 100, 0.5);
+}
+
+.floating-button-container button:active {
+    background: rgba(0, 0, 0, 0.85);
+
+}
+
+/* COLOR WIDGET */
+.color-widget-container {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.color-widget-container .floating-button-container button {
+    border: 1px solid white;
+    background: rgba(0,0,0,0.75);
+    box-shadow: none;
+    color: white;
+}
+
+.color-widget-container .floating-button-container button:hover,
+.color-widget-container .floating-button-container button:focus {
+    background: rgba(100, 100, 100, 0.5);
+}
+
+.color-widget-container .floating-button-container button:active {
+    background: rgba(255, 255, 255, 0.85);
+
+}
+
+/* ELEMENT SPECIFIC */
+#fieldset-container {
+    text-align: center;
+}
+
+#fieldset-container > label {
+    margin-bottom: 0;
+    font-size: 0.75em;
+}
+
+#success {
+    position: absolute;
+    right: 16px;
+    height: 50%;
+    top: 25%;
+    filter: invert(1) brightness(0.5) sepia(0.9) hue-rotate(30deg) saturate(19900%) contrast(0.9) brightness(0.4);
+    opacity: 1;
+    /*animation: saveAnimation 2s linear ;*/
+    transition: opacity 0s;
+}
+
+#success.hidden {
+    display: block;
+    /*animation: saveAnimation 5s linear reverse;*/
+    opacity: 0;
+    transition: opacity 0.65s;
+}
+
+#feedback {
+    font-size: 0.5em; 
+}
+
+.footer {
+    width: 75%;
+    margin: 0 auto;
+    border-top: 1px solid black;
+    padding-bottom: 5px;
+    line-height: 0.8em;
+}
+
+.dislaimer {
+    font-size: 0.6em;
+    /*padding: 0px 15px;*/
+    color: grey;
+}

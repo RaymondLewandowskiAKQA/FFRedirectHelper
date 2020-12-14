@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Settings | AEM Developer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles/globals.css">
+    <link rel="stylesheet" type="text/css" href="styles/options.css">
+    <link rel="stylesheet" type="text/css" href="color-picker/color-picker.css">
+    <script src="color-picker/color-picker.js"></script>
+    <script type="module" src="scripts/options.js"></script>
+  </head>
+<body>
+  <div class="header">
+    <div class="container clear-fix">
+      <h1>AEM Developer</h1>
+      <p>Please enter the URL(s) of your AEM site below.</p>
+      <div class="error notification hidden" id="error">
+        <span>An unexpected error has occurred.</span>
+        <button name="close" class="close" type="button">X</button>
+      </div>
+      <span class="floating-links pull-right">
+        <a id="export" href="#">Export Settings</a>
+        <a id="import" href="/options-advanced.html">Import Settings</a>
+        <a href="/options-advanced.html">Advanced</a>
+      </span>
+    </div>
+  </div>
+  <div class="content">
+    <div class="container">
+      <fieldset class="card " id="template" draggable="false" disabled>
+          <button name="remove" class="close" type="button">X</button>
+          <input class="hidden" type="text" name="id">
+          <input class="hidden" type="text" name="color">
+          <input class="hidden" type="checkbox" name="enabled" checked>
+          <div class="title">
+            <div class="name">
+              <label class="text">
+                <span>Name: * </span>
+                <input type="text" name="name" placeholder="Environment" required>
+              </label>
+            </div>
+            <div class="urls">
+              <label class="text">
+                <span class="name">Author URL: </span>
+                <input type="text" name="author-url" placeholder="https://www.author-stage.domain.com/cf#/index.html">
+              </label>
+              <label class="text">
+                <span class="name">Published URL: </span>
+                <input type="text" name="published-url" placeholder="https://www.stage.domain.com/index.html">
+              </label>
+            </div>
+            <div class="floating-button-container">
+              <button type="button" name="set-color">Set Color</button>
+            </div>
+          </div>
+          <div class="settings drag">
+            <!-- <fieldset>
+              <div class="checkbox-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="new-tab" value="">
+                    <span class="name">Open in New Tab</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+            </fieldset> -->
+            <fieldset>
+              <h3>Show in Context Menu</h3>
+              <div class="checkbox-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="context-menu" value="author">
+                    <span class="name">Author</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="context-menu" value="preview">
+                    <span class="name">Preview</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="context-menu" value="published">
+                    <span class="name">Published</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+      </fieldset>
+      <form id="options" autocomplete="">
+        <div id="fieldset-container">
+        </div>
+        <div class="quick-actions">
+          <button id="add-domain" type="button">Add domain</button>
+          <button type="submit" class="primary">Save
+            <img src="icons/svg/check-mark.svg" id="success" class="hidden">
+          </button>
+        </div>
+        <span id="feedback"></span>
+      </form>
+    </div>
+  </div>
+  <div class="footer"><span class="dislaimer" style="">This extension is for personal use only and not afiliated with nor endorsed by Adobe or Adobe Experience Manager</span></div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+const LABEL_ID = "envLabel",
+      BROWSER_STORAGE_AREA = "local",
+      BROWSER_STORAGE = browser.storage.local;
+    
+var currentSite; // we have to make this a global variable since it won't be able to be retrieved after
+                 // a settings update
+
+
+function getContentHTML(name,fore,bkg) {
+  // this can't be a constant bc variable substitution
+  return `<div id="${LABEL_ID}" style="--bkg:${bkg};--fore:${fore}">
+            <span>${name}</span>
+          </div>`;
+}
+
+// globally defined functions are not available so must be redefined here
+function hexToRgb(hex) {
+  // from: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb/5624139#5624139
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+function getTextColor(r,g,b) {
+  // https://stackoverflow.com/questions/11867545/change-text-color-based-on-brightness-of-the-covered-background-area/11868159#11868159
+  // http://www.w3.org/TR/AERT#color-contrast
+  // yes, these numbers are hardcoded, but it's also defined by the 
+  // W3C so should not need to change
+  var brightness = Math.round(((parseInt(r) * 299) +
+                               (parseInt(g) * 587) +
+                               (parseInt(b) * 114)) / 1000);
+  return textColor = (brightness > 125) ? 'black' : 'white';
+}
+
+function htmlToElement(html) {
+    var tmpContainer = document.createElement("div");
+    tmpContainer.innerHTML = html.trim();
+    return tmpContainer.firstChild;
+}
+
+function showLabel(site) {
+  var name = site.name || "",
+      bkg = site.color || "#ffffff",
+      rgb = hexToRgb(bkg),
+      fore = getTextColor(rgb.r,rgb.g,rgb.b);
+  envLabelEle = htmlToElement(getContentHTML(name,fore,bkg));
+  // anchor to top:
+  document.body.insertBefore(envLabelEle,document.body.firstChild);
+  // anchor to bottom:
+  // document.body.appendChild(envLabelEle);
+}
+
+function clearLabels() {
+  envLabelEle = document.getElementById(LABEL_ID);
+  while (envLabelEle) {
+    envLabelEle.remove();
+    envLabelEle = document.getElementById(LABEL_ID);
+  }
+}
+
+function updateLabel(site) {
+  BROWSER_STORAGE.get()
+  .then((data)=>{
+    clearLabels();
+    // if (site===null) {
+    //   return;
+    // }
+    // check if we should be showing envLabels
+    if (typeof data.showEnvLabels !== "undefined" && data.showEnvLabels===true) {
+      // if we are on a site being tracked by data.sites
+      // if (data.sites.some(function(dataSite){return dataSite.id===site.id})) {
+      showLabel(site);
+      browser.runtime.sendMessage({
+        type: "toggleCSS",
+        data: {
+          showCSS: true
+        }
+      })
+      .catch((error)=>{
+        console.error(error);
+      });
+      return;
+      // }
+    }
+    browser.runtime.sendMessage({
+      type: "toggleCSS",
+      data: {
+        showCSS: false
+      }
+    })
+    .catch((error)=>{
+      console.error(error);
+    });
+  })
+}
+
+function tabUpdateMessageListener(request,sender,sendResponse) {
+  if (request && request.type){
+    switch (request.type) {
+      case "tabUpdate":
+        console.log("Bar update from tabUpdate message")
+        currentSite=request.data.site;
+        updateLabel(request.data.site);
+        break;
+    }
+  }
+}
+
+function settingsChangedListener(changes,area) {
+  if (area==BROWSER_STORAGE_AREA && ("showEnvLabels" in changes || "sites" in changes)) {
+    console.log("Bar update from settings change");
+    // TODO: fetch the new site since currentSite is now outdated
+    updateLabel(currentSite);
+  }  
+}
+
+if (!browser.runtime.onMessage.hasListener(tabUpdateMessageListener)) {
+  browser.runtime.onMessage.addListener(tabUpdateMessageListener);
+}
+
+if (!browser.storage.onChanged.hasListener(settingsChangedListener)) {
+  browser.storage.onChanged.addListener(settingsChangedListener);
+}

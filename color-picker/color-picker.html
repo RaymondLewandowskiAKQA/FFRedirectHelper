@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Color picker</title>
+  <!-- color picker script (mandatory) -->
+  <!-- <link rel="stylesheet" type="text/css" href="slider.css"> -->
+  <link rel="stylesheet" type="text/css" href="color-picker.css">
+  <script src="color-picker.js"></script>
+  <!-- Below styles are for testing purposes only -->
+  <!-- (not mandatory) -->
+  <style type="text/css">
+    [id^="container"] {
+      display: inline-block;
+      width: 400px;
+      height: 400px;
+      position: relative;
+      background: pink;
+      overflow: hidden;
+      border-radius: 10px;
+      user-select: none;
+    }
+    [id^="indicator"] {
+      position: relative;
+      display: block;
+      margin-top: 15px;
+      margin-left: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 1px 2px 12px -6px black;
+    }
+    [id^="indicator"]::after {
+      content: attr(data-color);
+      position: absolute;
+      left: 100%;
+      bottom: 0;
+      margin-left: 15px;
+      font-family: "Century Gothic";
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Picker 1 -->
+  <div id="container1"></div>
+  <!-- Picker 2 -->
+  <div id="container2" style="width: 700px;"></div>
+  <!-- Indicators (not mandatory) -->
+  <div id="indicator1" style="background: #0f0;"></div>
+  <div id="indicator2" style="background: #0f0;"></div>
+  <!-- indicator script (not mandatory) -->
+  <script type="text/javascript">
+    var NUM_PICKERS = 2
+
+    // function RGBtoHex(rgbStr) {
+    //   if (!rgbStr) {
+    //     return "";
+    //   }
+    //   // from: https://stackoverflow.com/questions/13070054/convert-rgb-strings-to-hex-in-javascript
+    //   var tmp = rgbStr.split("(")[1].split(")")[0];
+    //   tmp = tmp.split(',');
+    //   var b = tmp.map(function(x){             //For each array element
+    //       x = parseInt(x).toString(16);      //Convert to a base16 string
+    //       return (x.length==1) ? "0"+x : x;  //Add zero if we get only one character
+    //   })
+    //   return "#"+b.join("");
+    // }
+    for (var i=0;i<NUM_PICKERS;i++) {
+      let dynamicElement = getBoundColorPicker();
+      dynamicElement.setAttribute("data-indicator-id","indicator"+(i+1));    
+      document.getElementById("container"+(i+1)).appendChild(dynamicElement);
+    }
+    Array.from(document.getElementsByClassName("color-picker")).forEach((picker)=>{
+      function mouseHandler(evt) {
+        document.getElementById(picker.getAttribute("data-indicator-id")).style.background = picker.color.hex;
+        document.getElementById(picker.getAttribute("data-indicator-id")).setAttribute("data-color",picker.color.hex);
+      } 
+      picker.addEventListener("pointermove",mouseHandler);
+      picker.addEventListener("pointerdown",mouseHandler);
+      window.addEventListener("load",mouseHandler);
+    })
+  </script>
+</body>
+</html>

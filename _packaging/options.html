@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AEM Developer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles/globals.css">
+    <link rel="stylesheet" type="text/css" href="styles/options.css">
+    <script src="scripts/globals.js"></script>
+  </head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h1>AEM Developer</h1>
+      <p>Please enter the URL(s) of your AEM site below.</p>
+      <div class="error notification hidden" id="error">
+        <span>An unexpected error has occurred.</span>
+        <button name="close" class="close" type="button">X</button>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="container">
+      <fieldset class="card " id="template" disabled>
+          <button name="remove" class="close" type="button">X</button>
+          <input class="hidden" type="text" name="id">
+          <input class="hidden" type="checkbox" name="enabled" checked>
+          <div class="title">
+            <div class="name">
+              <label class="text">
+                <span>Name: * </span>
+                <input type="text" name="name" placeholder="Environment" required>
+              </label>
+            </div>
+            <div class="urls">
+              <label class="text">
+                <span class="name">Author URL: * </span>
+                <input type="text" name="author-url" placeholder="https://www.author-stage.domain.com/cf#/index.html">
+              </label>
+              <label class="text">
+                <span class="name">Published URL: * </span>
+                <input type="text" name="published-url" placeholder="https://www.stage.domain.com/index.html">
+              </label>
+            </div>
+          </div>
+          <div class="settings">
+            <fieldset>
+              <div class="checkbox-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="new-tab" value="">
+                    <span class="name">Open in New Tab</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+                <!-- <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="context-menu" value="preview">
+                    <span class="name">Preview</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+              </div> -->
+            </fieldset>
+            <fieldset>
+              <h3>Show in Context Menu</h3>
+              <div class="checkbox-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="context-menu" value="author">
+                    <span class="name">Author</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="context-menu" value="preview">
+                    <span class="name">Preview</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="context-menu" value="published">
+                    <span class="name">Published</span>
+                    <span class="status" aria-hidden="true"></span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+      </fieldset>
+      <form id="options" autocomplete="off">
+        <div id="fieldset-container">
+        </div>
+        <div class="quick-actions">
+          <button id="add-domain" type="button">Add domain</button>
+          <button type="submit" class="primary">Save
+            <img src="icons/svg/check-mark.svg" id="success" class="hidden">
+          </button>
+        </div>
+        <span id="feedback"></span>
+      </form>
+    </div>
+  </div>
+  <script src="scripts/options.js"></script>
+</body>
+</html>

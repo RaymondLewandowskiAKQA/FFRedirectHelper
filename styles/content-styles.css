@@ -1,0 +1,23 @@
+#envLabel {
+    position: relative;
+    position:-webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 4px;
+    text-align: center;
+    background: var(--bkg);
+    border: 1px solid var(--fore);
+    z-index: 99999;
+}   
+
+#envLabel span {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    padding: 0px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    color:var(--fore);
+} 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AEM Developer Popup</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles/globals.css">
+  <link rel="stylesheet" type="text/css" href="styles/popup.css">
+  <script type="module" src="scripts/popup.js"></script>
+  <style type="text/css">
+    body {
+      width: 20%;
+    }
+    .card-container {
+      padding: 6px 6px 0px 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="body">
+    <div class="card-container" id="container"></div>
+  </div>
+  <div class="quick-actions">
+    <button type="button" id="show-bar" class="pull-left" title="Show environment labels">
+      <img src="icons/svg/window-bar.svg" class="icon">
+    </button>
+    <button type="button" id="disable-cache" title="Disable cache and reload page">
+      <img src="icons/svg/cache-refresh.svg" class="icon">
+    </button>
+    <button type="button" id="outline" title="Outline AEM components">
+      <img src="icons/svg/outline.svg" class="icon">
+    </button>
+    <button type="button" id="settings" class="pull-right" title="Open extension settings">
+      <img src="icons/svg/gear.svg" class="icon">
+    </button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AEM Developer Options</title>
+  </head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles/options.css">
+<body>
+  <div class="error notification hidden" id="error">
+    <span>An unexpected error has occured.</span>
+    <button name="close" class="close">X</button>
+  </div>
+  <h1>AEM Helper</h1>
+  <p>Please enter the URL(s) of your AEM site below.</p>
+  <form id="options" autocomplete="off">
+    <div id="fieldset-container">
+      <fieldset class="card" id="template" disabled>
+        <!-- <div class="inner"> -->
+        <input class="hidden" name="id">
+        <div class="top">
+          <label class="text"><span class="name">Name: </span><input type="text" name="name" placeholder="Name"></label>
+          <button name="delete" class="close">X</button>
+        </div>
+        <div class="body">
+          <div class="row">
+            <label><span class="name"><strong>Enabled: </strong></span><input type="checkbox" name="enabled"></label>        
+          </div>
+          <label class="text"><span class="name">Author URL: </span><input type="text" name="author-url"></label>
+          <label class="text"><span class="name">Published URL: </span><input type="text" name="published-url"></label>
+          <div class="row">
+            <h3>Show Link in Context Menu</h3>
+            <label><span class="name">Author: </span><input type="checkbox" name="context-menu" value="author" disabled></label>        
+            <label><span class="name">Preview: </span><input type="checkbox" name="context-menu" value="preview" disabled></label>        
+            <label><span class="name">Published: </span><input type="checkbox" name="context-menu" value="live" disabled></label>        
+          </div>
+          <div class="row">
+            <h3>Show Link in Toolbar</h3>
+            <label><span class="name">Author: </span><input type="checkbox" name="toolbar" value="author" disabled></label>        
+            <label><span class="name">Preview: </span><input type="checkbox" name="toolbar" value="preview" disabled></label>        
+            <label><span class="name">Published: </span><input type="checkbox" name="toolbar" value="live" disabled></label>        
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="bottom">
+      <button id="add-domain">Add domain</button>
+      <button type="submit" class="primary">Save</button>
+    </div>
+  </form>
+  <span id="feedback"></span>
+  <script src="scripts/options.js"></script>
+</body>
+</html>

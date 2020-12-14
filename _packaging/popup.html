@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AEM Developer Popup</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="styles/globals.css">
+  <link rel="stylesheet" type="text/css" href="styles/popup.css">
+  <script src="scripts/globals.js"></script>
+</head>
+<body>
+  <div class="body">
+    <div class="card-container" id="container">
+      <div class="card" id="template">
+        <div class="header">
+          <span class="name"></span>
+          <div class="icons">
+            <span class="lock hidden"><img src="icons/svg/lock-closed.svg"></span>
+            <span class="options-toggle"><img src="icons/svg/down.svg" data-enabled="icons/svg/down.svg" data-disabled="icons/svg/up.svg"></span>
+          </div>
+        </div>
+        <div class="options">
+          <div class="inner">
+            <div class="button-group">
+              <button type="button" name="lock" value="author">Lock as:</button>
+              <button type="button" name="lock" value="preview">Lock as:</button>
+              <button type="button" name="lock" value="published">Lock as:</button>
+            </div>
+          </div>
+        </div>
+                <div class="button-group">
+          <button type="button" name="open" value="author">Author</button>
+          <button type="button" name="open" value="preview">Preview</button>
+          <button type="button" name="open" value="published">Published</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="quick-actions">
+    <button type="button" id="settings" aria-label="Open extension settings"><img src="icons/svg/gear.svg" class="icon"></button>
+    <!-- <button type="button" id="lock" class="" aria-label="Lock in current environment"><img src="icons/svg/lock-open.svg" data-enabled="icons/svg/lock-closed.svg" data-disabled="icons/svg/lock-open.svg" class="icon"></button> -->
+  </div>
+  <script src="scripts/popup.js"></script>
+</body>
+</html>
