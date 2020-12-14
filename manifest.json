@@ -2,7 +2,7 @@
 
   "description": "Change AEM environments and set up to auto-redirect",
   "manifest_version": 2,
-  "name": "AEM Developer", // TODO: rename to PACE Yourself or something else suitably cheesy and Nissan related
+  "name": "AEM Developer",
   "version": "1.5.1.1",
   "icons": {
       "16":"icons/themes/light/tools-16.png",
@@ -30,8 +30,6 @@
   "background": {
     "persistent":true,
     "scripts": [
-      // this isn't great, but background.js needs resources defined in globals.js
-      // "scripts/globals.js",  
       "scripts/background.mjs"
     ]
   },
