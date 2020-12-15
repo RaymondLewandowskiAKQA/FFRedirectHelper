@@ -36,7 +36,8 @@
 
   "applications": {
     "gecko": {
-      "id": "moekakiryutaku@gmail.com"
+      "id": "moekakiryutaku@gmail.com",
+      "update_url":"https://github.com/RaymondLewandowskiAKQA/FFRedirectHelper/tree/prod"
     }
   },
 
