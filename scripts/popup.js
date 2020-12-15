@@ -285,21 +285,28 @@ function toggleDropdown(button,{card,...kwargs}) {
 }
 
 function renderButton(cardData,eventArgs) {
-  var buttonContainer = globals.htmlToElement("<span>"),
-    buttonHtml = `
-      <button type="button" class="card-button" title="${cardData.title||"Button"}">
-        <img src="${cardData.icon}" alt="${cardData.altText||"Button Image"}" aria-hidden="true">
-      </button>`,
-    dropdownToggleButtonHtml = '<button type="button" class="card-button" name="options" title="More options"></button>',
-    dropdownToggle;
+  var buttonContainer = globals.htmlElement("span"),
+    button,dropdownToggle;
   
-  buttonContainer.appendChild(bindEvents(
-     globals.htmlToElement(buttonHtml),
-     cardData.events,
-     eventArgs
-  ));
+  button = globals.htmlElement("button",null,{
+     type:"button",
+     class:"card-button",
+     title:cardData.title||"Button"
+  });
+  button.appendChild(globals.htmlElement("img",null,{
+    src:cardData.icon,
+    alt:cardData.altText||"Button Image",
+    "aria-hidden":true
+  }));
+  buttonContainer.appendChild(bindEvents(button,cardData.events,eventArgs));
+
   if (cardData.opensDropdown) {
-    dropdownToggle = globals.htmlToElement(dropdownToggleButtonHtml);
+    dropdownToggle = globals.htmlElement("button",null,{
+      type:"button",
+      class:"card-button",
+      name:"options",
+      title:"More options"
+    });
     dropdownToggle.addEventListener("click",(evt)=>{
       toggleDropdown(dropdownToggle,eventArgs);
     });
@@ -309,12 +316,15 @@ function renderButton(cardData,eventArgs) {
 }
 
 function renderDropdown(eventArgs) {
-  var dropdownHtml = `<div class="dropdown">
-      <div class="inline-group actions"></div>
-    </div>`,template,buttonContainer;
+  var template,buttonContainer;
 
-  template = globals.htmlToElement(dropdownHtml);
-  buttonContainer = template.getElementsByClassName(ACTIONS_CLASS)[0];
+  template = globals.htmlElement("div",null,{
+    class:"dropdown"
+  });
+  buttonContainer = globals.htmlElement("div",null,{
+    class:"inline-group actions"
+  });
+  template.appendChild(buttonContainer);
 
   Object.entries(BUTTON_MAP[DROPDOWN_KEY]).forEach(([name,data])=>{
     buttonContainer.appendChild(renderButton(data,eventArgs));
@@ -325,16 +335,24 @@ function renderDropdown(eventArgs) {
 function renderCard(targetSite,currentSite,selectedTabs) {
   /* this is arguably worse because it is hard-coded, but otoh at 
   least its completely contained in this function */
-  var templateHtml = `<div class="card">
-    <div class="header" style="--color:${targetSite.color || 'black'};">
-    <span class="name">${targetSite.name || "[Not found]"}</span>
-    <div class="inline-group actions"></div>
-    </div>
-  </div>`,
-  template,buttonContainer,button;
+  var template,header,buttonContainer;
 
-  template = globals.htmlToElement(templateHtml);
-  buttonContainer = template.getElementsByClassName(ACTIONS_CLASS)[0];
+  template = globals.htmlElement("div",null,{
+    class:"card"
+  });
+  header = globals.htmlElement("div",null,{
+    class:"header",
+    style:`--color:${targetSite.color || 'black'};`
+  });
+  template.appendChild(header);
+  header.appendChild(globals.htmlElement("span",targetSite.name || "[Not found]",{
+    class:"name"
+  }));
+  buttonContainer = globals.htmlElement("div",null,{
+    class:"inline-group actions"
+  });
+  header.appendChild(buttonContainer)
+  // buttonContainer = template.getElementsByClassName(ACTIONS_CLASS)[0];
   
   Object.entries(BUTTON_MAP).forEach(([name,data])=>{
     if (name !== DROPDOWN_KEY) {
