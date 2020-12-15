@@ -72,11 +72,20 @@ export function getThemeIcon(theme,file) {
   return `${THEME_PATH}/${theme}/${file}`;
 }
 
-export function htmlToElement(html) {
-    var tmpContainer = document.createElement("div");
-    tmpContainer.innerHTML = html.trim();
-    return tmpContainer.firstChild;
+export function htmlElement(tagName,content,attrs,listeners) {
+  var node = document.createElement(tagName);
+  if (content!=null) { // if content is not null or undefined
+    node.textContent = content;
+  }
+  for (let attr in attrs||{}) {
+    node.setAttribute(attr,attrs[attr]);
+  }
+  for (let event in listeners||{}) {
+    node.addEventListener(event,listeners[event]);
+  }
+  return node;
 }
+
 
 export function prependChild(parent,ele) {
   parent.insertBefore(ele,parent.firstChild);

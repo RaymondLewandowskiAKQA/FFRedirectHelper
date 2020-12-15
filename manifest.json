@@ -3,7 +3,7 @@
   "description": "Change AEM environments and set up to auto-redirect",
   "manifest_version": 2,
   "name": "AEM Developer",
-  "version": "1.5.3.2",
+  "version": "1.5.4",
   "icons": {
       "16":"icons/themes/light/tools-16.png",
       "32":"icons/themes/light/tools-32.png",

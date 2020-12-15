@@ -5,14 +5,6 @@ const LABEL_ID = "envLabel",
 var currentSite; // we have to make this a global variable since it won't be able to be retrieved after
                  // a settings update
 
-
-function getContentHTML(name,fore,bkg) {
-  // this can't be a constant bc variable substitution
-  return `<div id="${LABEL_ID}" style="--bkg:${bkg};--fore:${fore}">
-            <span>${name}</span>
-          </div>`;
-}
-
 // globally defined functions are not available so must be redefined here
 function hexToRgb(hex) {
   // from: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb/5624139#5624139
@@ -35,10 +27,18 @@ function getTextColor(r,g,b) {
   return textColor = (brightness > 125) ? 'black' : 'white';
 }
 
-function htmlToElement(html) {
-    var tmpContainer = document.createElement("div");
-    tmpContainer.innerHTML = html.trim();
-    return tmpContainer.firstChild;
+function htmlElement(tagName,content,attrs,listeners) {
+  var node = document.createElement(tagName);
+  if (content!=null) { // if content is not null or undefined
+    node.textContent = content;
+  }
+  for (let attr in attrs||{}) {
+    node.setAttribute(attr,attrs[attr]);
+  }
+  for (let event in listeners||{}) {
+    node.addListener(event,listeners[event]);
+  }
+  return node;
 }
 
 function showLabel(site) {
@@ -46,7 +46,11 @@ function showLabel(site) {
       bkg = site.color || "#ffffff",
       rgb = hexToRgb(bkg),
       fore = getTextColor(rgb.r,rgb.g,rgb.b);
-  envLabelEle = htmlToElement(getContentHTML(name,fore,bkg));
+  envLabelEle = htmlElement("div",null,{
+    id:LABEL_ID,
+    style:`--bkg:${bkg};--fore:${fore}`
+  });
+  envLabelEle.appendChild(htmlElement("span",name));
   // anchor to top:
   document.body.insertBefore(envLabelEle,document.body.firstChild);
   // anchor to bottom:

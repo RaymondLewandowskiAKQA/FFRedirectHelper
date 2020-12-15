@@ -116,7 +116,7 @@ img {
     /*font-size: 18px;*/
     /*padding: 8px*/
     border-radius: 6px;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 .card-container {

@@ -317,17 +317,6 @@ document.getElementById("import").addEventListener("click",(evt)=>{
 
 var activeColorContainers=[];
 
-var colorWidgetHTML = `
-  <fieldset class="color-widget-container">
-    <div class="floating-button-container">
-      <button type="button" id="${WIDGET_CLEAR_ID}">Clear</button>
-      <button type="button" id="${WIDGET_SAVE_ID}">Save</button>
-      <button type="button" id="${WIDGET_CANCEL_ID}">Cancel</button>
-    </div>
-  </fieldset>
-`;
-
-
 function closeColorWidget(colorContainer) {
   if (colorContainer.parent) {
     colorContainer.parent.removeChild(colorContainer);
@@ -354,33 +343,44 @@ function saveWidgetColor(parent,color) {
 function showColorWidget(parent,siteId,callback) {
   var picker = getBoundColorPicker(),
       formData = serializeFormData(FORM,FIELD_MAP),
-      colorContainer,saveButton,clearButton,cancelButton,
+      colorContainer,buttonContainer,
       rgb,hsv;
 
-  colorContainer = htmlToElement(colorWidgetHTML);
+  colorContainer = globals.htmlElement("fieldset",null,{
+    class:"color-widget-container"
+  });
+  buttonContainer = globals.htmlElement("div",null,{
+    class:"floating-button-container"
+  });
+  buttonContainer.appendChild(
+    globals.htmlElement("button","Save",{type:"button"},{
+      click:(e)=>{
+        saveWidgetColor(parent,picker.color.hex); // ok these attributes /might/ have gotten out of hand
+        callback();
+        closeColorWidget(colorContainer);
+      }
+    })
+   );
+  buttonContainer.appendChild(
+    globals.htmlElement("button","Clear",{type:"button"},{
+      click:(e)=>{
+        saveWidgetColor(parent,"");
+        callback();
+        closeColorWidget(colorContainer);
+      }
+    })
+  )
+  buttonContainer.appendChild(
+    globals.htmlElement("button","Cancel",{type:"button"},{
+      click:(e)=>{
+        callback();
+        closeColorWidget(colorContainer);
+      }
+    })
+  )
+  colorContainer.appendChild(buttonContainer);
   colorContainer.parent = parent;
   colorContainer.callback = callback;
-
-  saveButton = colorContainer.querySelector("#"+WIDGET_SAVE_ID);
-  saveButton.addEventListener("click",(e)=>{
-    saveWidgetColor(parent,picker.color.hex); // ok these attributes /might/ have gotten out of hand
-    callback();
-    closeColorWidget(colorContainer);
-  });
-
-  clearButton = colorContainer.querySelector("#"+WIDGET_CLEAR_ID);
-  clearButton.addEventListener("click",(e)=>{
-    saveWidgetColor(parent,"");
-    callback();
-    closeColorWidget(colorContainer);
-  }); 
-
-  cancelButton = colorContainer.querySelector("#"+WIDGET_CANCEL_ID);
-  cancelButton.addEventListener("click",(e)=>{
-    callback();
-    closeColorWidget(colorContainer);
-  });    
-
   globals.prependChild(colorContainer,picker);
   while (activeColorContainers.length>=MAX_OPEN_WIDGETS && activeColorContainers.length>0) {
     let activeContainer = activeColorContainers.shift();
@@ -399,6 +399,9 @@ function showColorWidget(parent,siteId,callback) {
   // have the correct color value.
   if (typeof siteId !== "undefined") {
     rgb = globals.hexToRgb(formData.filter((site)=>{return site.id===siteId})[0].color);
+    if (rgb==null) {
+      rgb = {r:0,g:0,b:0};
+    }
     hsv = globals.RGBToHSV(rgb.r,rgb.g,rgb.b)
     picker.resetColor(hsv.h,hsv.s,hsv.v);
   }
