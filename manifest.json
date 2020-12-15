@@ -9,7 +9,7 @@
       "32":"icons/themes/light/tools-32.png",
       "64":"icons/themes/light/tools-64.png"
   },
-  "homepage_url":"https://github.com/RaymondLewandowskiAKQA/FFRedirectHelper/tree/prod",
+  "homepage_url":"https://github.com/RaymondLewandowskiAKQA/FFRedirectHelper",
 
   "permissions": [
     "<all_urls>",
@@ -37,7 +37,7 @@
   "applications": {
     "gecko": {
       "id": "raymond.lewandowski@akqa.com",
-      "update_url":"https://github.com/RaymondLewandowskiAKQA/FFRedirectHelper/tree/prod"
+      "update_url":"https://raw.githubusercontent.com/RaymondLewandowskiAKQA/FFRedirectHelper/prod/updates.json"
     }
   },
 
