@@ -33,6 +33,10 @@
         {
           "version": "1.5.5",
           "update_link": "https://raw.githubusercontent.com/RaymondLewandowskiAKQA/FFRedirectHelper/master/versions/aem_developer-1.5.5-fx.xpi"
+        },
+        {
+          "version": "1.6.0",
+          "update_link": "https://raw.githubusercontent.com/RaymondLewandowskiAKQA/FFRedirectHelper/master/versions/aem_developer-1.6.0-fx.xpi"
         }
       ]
     }
