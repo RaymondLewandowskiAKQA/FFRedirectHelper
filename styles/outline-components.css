@@ -1,20 +1,3 @@
-.section.outline,.section { 
-    border: 2px dashed red !important;
-}
-
-.section {
-    position: relative;
-}
-
-.section > [class*="c_"]::before {
-    content: attr(class);
-    color: red;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 5px;
-    z-index: 99;
-    background: white;
-    border-right: 1px solid red;
-    border-bottom: 1px solid red;
+.ff-extension-target {
+  position: relative;
 }

@@ -1,15 +1,14 @@
 {
-
   "description": "Change AEM environments and set up to auto-redirect",
   "manifest_version": 2,
   "name": "AEM Developer",
-  "version": "1.5.5",
+  "version": "1.6.0",
   "icons": {
-      "16":"icons/themes/light/tools-16.png",
-      "32":"icons/themes/light/tools-32.png",
-      "64":"icons/themes/light/tools-64.png"
+    "16": "icons/themes/light/tools-16.png",
+    "32": "icons/themes/light/tools-32.png",
+    "64": "icons/themes/light/tools-64.png"
   },
-  "homepage_url":"https://github.com/RaymondLewandowskiAKQA/FFRedirectHelper",
+  "homepage_url": "https://github.com/RaymondLewandowskiAKQA/FFRedirectHelper",
 
   "permissions": [
     "<all_urls>",
@@ -18,36 +17,34 @@
     "storage",
     "tabs",
     "theme",
-    "webRequest", 
+    "webRequest",
     "webRequestBlocking"
   ],
 
-  "options_ui":{
-    "page":"options.html",
-    "open_in_tab":true
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
   },
 
   "background": {
-    "persistent":true,
-    "scripts": [
-      "scripts/background.mjs"
-    ]
+    "persistent": true,
+    "scripts": ["scripts/background.mjs"]
   },
 
   "applications": {
     "gecko": {
       "id": "raymond.lewandowski@akqa.com",
-      "update_url":"https://raw.githubusercontent.com/RaymondLewandowskiAKQA/FFRedirectHelper/master/updates.json"
+      "update_url": "https://raw.githubusercontent.com/RaymondLewandowskiAKQA/FFRedirectHelper/master/updates.json"
     }
   },
 
   "page_action": {
     "default_icon": {
-      "16":"icons/themes/light/tools-16.png",
-      "32":"icons/themes/light/tools-32.png",
-      "64":"icons/themes/light/tools-64.png"
+      "16": "icons/themes/light/tools-16.png",
+      "32": "icons/themes/light/tools-32.png",
+      "64": "icons/themes/light/tools-64.png"
     },
-    "default_title":"Change AEM Environment",
-    "default_popup":"popup.html"
+    "default_title": "Change AEM Environment",
+    "default_popup": "popup.html"
   }
 }
