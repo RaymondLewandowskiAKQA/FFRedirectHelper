@@ -2,6 +2,7 @@ const SITE_LABEL_ID = "envLabel",
   // Component outlines
   COMPONENT_LABEL_CLASS = "component-label",
   COMPONENT_LABEL_COLOR = "#f00",
+  COLUMN_LABEL_COLOR = "#00f",
   COMPONENT_TARGET_CLASS = "ff-extension-target",
   GENERATED_TAG_NAME = "ff-extension-label",
   // Storage
@@ -324,26 +325,87 @@ function buildComponentLabel(parent, labelText, color, isAnchoredToTop = true) {
   return labelEle;
 }
 
+function getColumnName(target) {
+  const columnPattern = /columns?[0-9]+/i;
+
+  const columnClass = Array.from(target.classList).find((cls) =>
+    columnPattern.test(cls)
+  );
+
+  return columnClass ?? target.getAttribute("class");
+}
+
+function getComponentName(target) {
+  const componentIdPattern = /^c[-_]?[0-9]/i;
+
+  // Attempt to retrieve component id from analytics attribute
+  const analyticsAttribute = target.getAttribute("data-id");
+  const analyticsId = componentIdPattern.test(analyticsAttribute)
+    ? analyticsAttribute
+    : undefined;
+
+  // Attempt to retrieve component id from dedicated attribute
+  const componentId = target.getAttribute("data-compid");
+
+  // Search for component IDs embedded in the element classes
+  const filteredClasses = Array.from(target.classList).filter((cls) =>
+    componentIdPattern.test(cls)
+  );
+  const classIds =
+    filteredClasses.length > 0 ? filteredClasses.join(" ") : undefined;
+
+  // Prefer analyticsId over componentId as the former is more likely to contain a numeric code
+  return analyticsId ?? componentId ?? classIds;
+}
+
 function updateOutlines({ isEnabled }) {
   if (isEnabled) {
-    // Add CSS class to outline elements
-    document.querySelectorAll("*").forEach((target) => {
-      const componentClassPattern = /^c[-_]?[0-9]/i;
+    // Add outlines for column controls
+    document.querySelectorAll(".column").forEach((target) => {
+      console.groupCollapsed("Adding Column outlines", target);
+      const columnName = getColumnName(target);
+      console.log(columnName);
 
-      const aemIds = Array.from(target.classList).filter((cls) =>
-        componentClassPattern.test(cls)
+      const borderEle = buildBorder(target, COLUMN_LABEL_COLOR);
+      target.appendChild(borderEle);
+
+      const labelEle = buildComponentLabel(
+        target,
+        columnName,
+        COLUMN_LABEL_COLOR
       );
-      const analyticsId = componentClassPattern.test(
-        target.getAttribute("data-id")
-      )
-        ? target.getAttribute("data-id")
-        : undefined;
-      const nextId = target.getAttribute("data-compid");
+      target.appendChild(labelEle);
 
-      if (!analyticsId && !nextId && !aemIds.length) {
+      target.classList.add(COMPONENT_TARGET_CLASS);
+
+      target.addEventListener("mouseenter", () => {
+        Object.assign(borderEle.style, {
+          visibility: "visible",
+        });
+        Object.assign(labelEle.style, {
+          visibility: "visible",
+        });
+      });
+
+      target.addEventListener("mouseleave", () => {
+        Object.assign(borderEle.style, {
+          visibility: "hidden",
+        });
+        Object.assign(labelEle.style, {
+          visibility: "hidden",
+        });
+      });
+      console.groupEnd();
+    });
+
+    // Add outlines to components (note that components use multiple classes and
+    // attributes, we must test all DOM elements)
+    document.querySelectorAll("*").forEach((target) => {
+      const componentName = getComponentName(target);
+
+      if (!componentName) {
         return;
       }
-      const componentName = analyticsId ?? nextId ?? aemIds.join(" ");
 
       const borderEle = buildBorder(target, COMPONENT_LABEL_COLOR);
       target.appendChild(borderEle);
