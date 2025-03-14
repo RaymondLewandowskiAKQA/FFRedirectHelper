@@ -405,23 +405,48 @@ function toggleOutline(evt,currentTarget,currentTab) {
   globals.BROWSER_STORAGE.get()
   .then((data)=>{
     if (data.outlinedTabs.includes(tabId)) {
+      // Remove CSS file for outline
       browser.tabs.removeCSS({
         file: CSS_OUTLINE_FILE
       })
-      data.outlinedTabs.splice(data.outlinedTabs.indexOf(tabId),1);
+
+      // Send message to the content script to update the DOM
+      browser.tabs.sendMessage(tabId, {
+        type: 'outlineComponents',
+        data: {
+          isEnabled: false,
+        }
+      })
+
+      // Update internal state
+      data.outlinedTabs.splice(data.outlinedTabs.indexOf(tabId), 1);
       currentTarget.classList.remove(ACTIVE_CLASS);
     } else {
+      // Add CSS file for outline
       browser.tabs.insertCSS({
         file:CSS_OUTLINE_FILE
       });
+
+      // Send message to the content script to update the DOM
+      browser.tabs.sendMessage(tabId, {
+        type: 'outlineComponents',
+        data: {
+          isEnabled: true,
+        }
+      })
+        
+      // Update internal state
       data.outlinedTabs.push(tabId);
       currentTarget.classList.add(ACTIVE_CLASS);
     }
+
     globals.BROWSER_STORAGE.set({
       outlinedTabs: data.outlinedTabs
     });
   })
-  .catch((error)=>{console.error(error)});
+  .catch((error)=>{
+    console.error(error)
+  });
 }
 
 // toggle env label button listener

@@ -1,5 +1,6 @@
 const LABEL_ID = "envLabel",
       BROWSER_STORAGE_AREA = "local",
+      OUTLINED_ATTRIBUTE = 'ff-redirect-component',
       BROWSER_STORAGE = browser.storage.local;
     
 var currentSite; // we have to make this a global variable since it won't be able to be retrieved after
@@ -101,6 +102,30 @@ function updateLabel(site) {
   })
 }
 
+function updateOutlines({ isEnabled }) {
+  if (isEnabled) {
+    // Add CSS class to outline elements
+    document.querySelectorAll('*').forEach((ele) => {
+      const componentClassPattern = /c[-_]?[0-9]/i
+
+      const aemIds = Array.from(ele.classList).filter(
+        cls => componentClassPattern.test(cls)
+      )
+      const nextId = ele.getAttribute('data-compid')
+
+      if (!nextId && !aemIds.length) {
+        return
+      }
+      const componentName = nextId ?? aemIds.join(' ')
+      ele.setAttribute(OUTLINED_ATTRIBUTE, componentName)
+    })
+  } else {
+    document.querySelectorAll(`[${OUTLINED_ATTRIBUTE}]`).forEach((ele) => {
+      ele.removeAttribute(OUTLINED_ATTRIBUTE)
+    })
+  }
+}
+
 function tabUpdateMessageListener(request,sender,sendResponse) {
   if (request && request.type){
     switch (request.type) {
@@ -109,6 +134,8 @@ function tabUpdateMessageListener(request,sender,sendResponse) {
         currentSite=request.data.site;
         updateLabel(request.data.site);
         break;
+      case 'outlineComponents':
+        updateOutlines(request.data)
     }
   }
 }
