@@ -1,10 +1,17 @@
-const LABEL_ID = "envLabel",
+const SITE_LABEL_ID = "envLabel",
+  // Component outlines
+  COMPONENT_LABEL_CLASS = "component-label",
+  COMPONENT_LABEL_COLOR = "#f00",
+  COMPONENT_TARGET_CLASS = "ff-extension-target",
+  GENERATED_TAG_NAME = "ff-extension-label",
+  // Storage
   BROWSER_STORAGE_AREA = "local",
-  OUTLINED_ATTRIBUTE = "ff-redirect-component",
   BROWSER_STORAGE = browser.storage.local;
 
 var currentSite; // we have to make this a global variable since it won't be able to be retrieved after
 // a settings update
+
+/* ---- Utils ----- */
 
 // globally defined functions are not available so must be redefined here
 function hexToRgb(hex) {
@@ -45,13 +52,101 @@ function htmlElement(tagName, content, attrs, listeners) {
   return node;
 }
 
+function getElementPosition(target) {
+  const isInDOM = document.body.contains(target);
+
+  const emptyReturnValue = {
+    top: undefined,
+    bottom: undefined,
+    left: undefined,
+    right: undefined,
+    x: undefined,
+    y: undefined,
+    width: undefined,
+    height: undefined,
+  };
+
+  if (target == null) {
+    return emptyReturnValue;
+  }
+
+  // If the target hasn't been added to the DOM yet, temporarily add it to retrieve the dimensions
+  if (!isInDOM) {
+    document.body.appendChild(target);
+  }
+
+  const { top, bottom, left, right, x, y, width, height } =
+    target.getBoundingClientRect();
+
+  const horizontalOffset = window.scrollX;
+  const verticalOffset = window.scrollY;
+
+  if (!isInDOM) {
+    document.body.removeChild(target);
+
+    // If the target is not in the DOM, it does not have a meaningful position yet,
+    // but we still might want to know the width and height
+    return Object.assign(emptyReturnValue, {
+      width,
+      height,
+    });
+  }
+
+  return {
+    top: top + verticalOffset,
+    bottom: bottom + verticalOffset,
+    left: left + horizontalOffset,
+    right: right + horizontalOffset,
+    x: x + horizontalOffset,
+    y: y + verticalOffset,
+    width,
+    height,
+  };
+}
+
+function getParents(target, filter = () => true) {
+  const parents = [];
+  do {
+    if (filter(target)) {
+      parents.unshift(target);
+    }
+    target = target.parentNode;
+  } while (target);
+
+  return parents;
+}
+
+function reduceParents(target, reducer, initialValue) {
+  return getParents(target).reduce(reducer, initialValue);
+}
+
+function getComputedProperty(
+  target,
+  property,
+  isValid = (value) => value !== ""
+) {
+  const propertyValue = window
+    .getComputedStyle(target)
+    .getPropertyValue(property);
+
+  if (!isValid(propertyValue)) {
+    if (!target.parentElement) return null;
+
+    return getComputedProperty(target.parentElement, property, isValid);
+  }
+
+  return propertyValue;
+}
+
+/* ---- Actions ----- */
+
 function showSiteLabel(site) {
   var name = site.name || "",
     bkg = site.color || "#ffffff",
     rgb = hexToRgb(bkg),
     fore = getTextColor(rgb.r, rgb.g, rgb.b);
   envLabelEle = htmlElement("div", null, {
-    id: LABEL_ID,
+    id: SITE_LABEL_ID,
     style: `--bkg:${bkg};--fore:${fore}`,
   });
   envLabelEle.appendChild(htmlElement("span", name));
@@ -61,17 +156,17 @@ function showSiteLabel(site) {
   // document.body.appendChild(envLabelEle);
 }
 
-function clearLabels() {
-  envLabelEle = document.getElementById(LABEL_ID);
+function clearSiteLabels() {
+  envLabelEle = document.getElementById(SITE_LABEL_ID);
   while (envLabelEle) {
     envLabelEle.remove();
-    envLabelEle = document.getElementById(LABEL_ID);
+    envLabelEle = document.getElementById(SITE_LABEL_ID);
   }
 }
 
-function updateLabel(site) {
+function updateSiteLabel(site) {
   BROWSER_STORAGE.get().then((data) => {
-    clearLabels();
+    clearSiteLabels();
     // if (site===null) {
     //   return;
     // }
@@ -109,29 +204,188 @@ function updateLabel(site) {
   });
 }
 
+function getComponentLabelOffset(label, parent, isAnchoredToTop = true) {
+  // Allow some overlap to account for extra space from padding and borders
+  const allowedVerticalOverlap = 1;
+  const allowedHorizontalOverlap = 5;
+
+  const {
+    top: parentTop,
+    left: parentLeft,
+    width: parentWidth,
+    height: parentHeight,
+  } = getElementPosition(parent);
+
+  const { width: labelWidth, height: labelHeight } = getElementPosition(label);
+
+  const parentLabelOffset = reduceParents(
+    parent,
+    (bottom, ele) => {
+      const eleLabel = ele.querySelector(`:scope > .${COMPONENT_LABEL_CLASS}`);
+
+      const { bottom: labelBottom, right: labelRight } =
+        getElementPosition(eleLabel);
+
+      const hasLabel = !!labelBottom;
+      const isLabelOverElement =
+        labelRight > parentLeft + allowedHorizontalOverlap;
+
+      if (!hasLabel || !isLabelOverElement) {
+        return bottom;
+      }
+
+      return labelBottom;
+    },
+    0
+  );
+
+  const labelOffset = Math.max(
+    parentLabelOffset - parentTop - allowedVerticalOverlap,
+    0
+  );
+
+  if (
+    parentWidth < labelWidth ||
+    parentHeight < labelHeight ||
+    isAnchoredToTop === false
+  ) {
+    return Math.max(parentHeight, labelOffset);
+  }
+
+  return labelOffset;
+}
+
+function buildBorder(parent, color) {
+  // Build element
+  const borderEle = document.createElement(GENERATED_TAG_NAME);
+
+  Object.assign(borderEle.style, {
+    position: "absolute",
+    visibility: "hidden",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
+
+    borderWidth: "3px",
+    borderStyle: "dashed",
+    borderColor: color,
+    pointerEvents: "none",
+  });
+
+  return borderEle;
+}
+
+function buildComponentLabel(parent, labelText, color, isAnchoredToTop = true) {
+  // Build element
+  const labelEle = document.createElement(GENERATED_TAG_NAME);
+  labelEle.classList.add(COMPONENT_LABEL_CLASS);
+  labelEle.innerText = labelText;
+
+  // Calculate dynamic styles
+  const computedZIndex =
+    parseInt(
+      getComputedProperty(parent, "z-index", (value) => !isNaN(value))
+    ) || 0;
+  const depth = getParents(parent).length;
+  const zIndex = depth + computedZIndex + 2000;
+
+  Object.assign(labelEle.style, {
+    position: "absolute",
+    visibility: "hidden",
+    top: 0,
+    left: 0,
+    zIndex: zIndex ?? 2,
+
+    padding: "2px",
+    borderWidth: "1px",
+    borderStyle: "solid",
+    borderColor: color,
+    backgroundColor: "white",
+
+    color: color,
+    fontSize: "1rem",
+    fontFamily: "sans-serif",
+    fontWeight: "normal",
+    whiteSpace: "nowrap",
+
+    pointerEvents: "none",
+  });
+
+  // Stack labels below each other to prevent overlapping
+  const labelOffset = getComponentLabelOffset(
+    labelEle,
+    parent,
+    isAnchoredToTop
+  );
+  labelEle.style.top = `${labelOffset}px`;
+
+  return labelEle;
+}
+
 function updateOutlines({ isEnabled }) {
   if (isEnabled) {
     // Add CSS class to outline elements
-    document.querySelectorAll("*").forEach((ele) => {
-      const componentClassPattern = /c[-_]?[0-9]/i;
+    document.querySelectorAll("*").forEach((target) => {
+      const componentClassPattern = /^c[-_]?[0-9]/i;
 
-      const aemIds = Array.from(ele.classList).filter((cls) =>
+      const aemIds = Array.from(target.classList).filter((cls) =>
         componentClassPattern.test(cls)
       );
-      const nextId = ele.getAttribute("data-compid");
+      const analyticsId = componentClassPattern.test(
+        target.getAttribute("data-id")
+      )
+        ? target.getAttribute("data-id")
+        : undefined;
+      const nextId = target.getAttribute("data-compid");
 
-      if (!nextId && !aemIds.length) {
+      if (!analyticsId && !nextId && !aemIds.length) {
         return;
       }
-      const componentName = nextId ?? aemIds.join(" ");
-      ele.setAttribute(OUTLINED_ATTRIBUTE, componentName);
+      const componentName = analyticsId ?? nextId ?? aemIds.join(" ");
+
+      const borderEle = buildBorder(target, COMPONENT_LABEL_COLOR);
+      target.appendChild(borderEle);
+
+      const labelEle = buildComponentLabel(
+        target,
+        componentName,
+        COMPONENT_LABEL_COLOR
+      );
+      target.appendChild(labelEle);
+
+      target.classList.add(COMPONENT_TARGET_CLASS);
+
+      target.addEventListener("mouseenter", () => {
+        Object.assign(borderEle.style, {
+          visibility: "visible",
+        });
+        Object.assign(labelEle.style, {
+          visibility: "visible",
+        });
+      });
+
+      target.addEventListener("mouseleave", () => {
+        Object.assign(borderEle.style, {
+          visibility: "hidden",
+        });
+        Object.assign(labelEle.style, {
+          visibility: "hidden",
+        });
+      });
     });
   } else {
-    document.querySelectorAll(`[${OUTLINED_ATTRIBUTE}]`).forEach((ele) => {
-      ele.removeAttribute(OUTLINED_ATTRIBUTE);
+    document.querySelectorAll(GENERATED_TAG_NAME).forEach((ele) => {
+      ele.remove();
+    });
+    document.querySelectorAll(`.${COMPONENT_TARGET_CLASS}`).forEach((ele) => {
+      ele.classList.remove(COMPONENT_TARGET_CLASS);
     });
   }
 }
+
+/* ---- Main ----- */
 
 function tabUpdateMessageListener(request, sender, sendResponse) {
   if (request && request.type) {
@@ -139,7 +393,7 @@ function tabUpdateMessageListener(request, sender, sendResponse) {
       case "tabUpdate":
         console.log("Bar update from tabUpdate message");
         currentSite = request.data.site;
-        updateLabel(request.data.site);
+        updateSiteLabel(request.data.site);
         break;
       case "outlineComponents":
         updateOutlines(request.data);
@@ -154,7 +408,7 @@ function settingsChangedListener(changes, area) {
   ) {
     console.log("Bar update from settings change");
     // TODO: fetch the new site since currentSite is now outdated
-    updateLabel(currentSite);
+    updateSiteLabel(currentSite);
   }
 }
 

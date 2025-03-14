@@ -1,17 +1,3 @@
-[ff-redirect-component] {
+.ff-extension-target {
   position: relative;
-  border: 2px dashed red;
-}
-
-[ff-redirect-component]::before {
-  content: attr(ff-redirect-component);
-  color: red;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 5px;
-  z-index: 99;
-  background: white;
-  border-right: 1px solid red;
-  border-bottom: 1px solid red;
 }
